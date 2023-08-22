@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function Form() {
+function Form({ numberOfRenders, setNumberOfRenders }) {
   // controlled inputs use state
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -15,9 +15,13 @@ function Form() {
     }
 
     // instead of setting the data array, we are going to make a POST request to our back-end server
-
-    // re-fetch data 
-    fetchTodos();
+    await fetch('http://localhost:3000/todo', {
+      method: "POST",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify(newTodo)
+    })
+    // increment numberOfRenders 
+    setNumberOfRenders(numberOfRenders + 1)
     setTitle("");
     setDescription("");
     setTime("");
