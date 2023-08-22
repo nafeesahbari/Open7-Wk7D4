@@ -4,7 +4,7 @@ import Form from "./components/Form.jsx";
 import "./App.css";
 
 function App() {
-  // data no longer hard coded
+  // data no longer hard coded - getting this from our backend API
   const [data, setData] = useState([]);
 
   const [isTodoListVisible, setIsTodoListVisible] = useState(false);
